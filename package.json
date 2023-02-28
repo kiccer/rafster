@@ -25,6 +25,11 @@
     "homepage": "https://github.com/kiccer/rafster#readme",
     "devDependencies": {
         "@rollup/plugin-terser": "^0.4.0",
+        "eslint": "^8.0.1",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0",
+        "eslint-plugin-promise": "^6.0.0",
         "rollup": "^3.17.3"
     }
 }
