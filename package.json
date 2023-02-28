@@ -4,7 +4,7 @@
     "description": "使不同库共享 requestAnimationFrame 和 cancelAnimationFrame 方法，节省动画帧，以此提升性能。",
     "main": "src/index.js",
     "scripts": {
-        "rollup:dev": "rollup -c --environment NODE_ENV:development",
+        "rollup:dev": "rollup -c -w --environment NODE_ENV:development",
         "rollup:build": "rollup -c --environment NODE_ENV:production",
         "test": "echo \"Error: no test specified\" && exit 1"
     },

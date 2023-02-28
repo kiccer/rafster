@@ -12,7 +12,15 @@ function getConfig (format) {
             output: {
                 format,
                 file: `build/rafster.${format}.js`
-            }
+            },
+
+            watch: isDev ? {
+                buildDelay: 1000,
+
+                include: [
+                    'src/**'
+                ]
+            } : false
         }
     ]
 
@@ -34,10 +42,10 @@ function getConfig (format) {
     return configs
 }
 
-if (isDev) {
-    // config.output.format = 'es'
-}
-
-export default outputFormats.reduce((configs, format) => {
+const configs = outputFormats.reduce((configs, format) => {
     return configs.concat(getConfig(format))
 }, [])
+
+console.log(JSON.stringify(configs, null, 4))
+
+export default configs
