@@ -1,0 +1,30 @@
+{
+    "name": "rafster",
+    "version": "1.0.0",
+    "description": "使不同库共享 requestAnimationFrame 和 cancelAnimationFrame 方法，节省动画帧，以此提升性能。",
+    "main": "src/index.js",
+    "scripts": {
+        "rollup:dev": "rollup -c --environment NODE_ENV:development",
+        "rollup:build": "rollup -c --environment NODE_ENV:production",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kiccer/rafster.git"
+    },
+    "keywords": [
+        "requestAnimationFrame",
+        "multiple",
+        "shared-frame"
+    ],
+    "author": "kiccer <1072907338@qq.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/kiccer/rafster/issues"
+    },
+    "homepage": "https://github.com/kiccer/rafster#readme",
+    "devDependencies": {
+        "@rollup/plugin-terser": "^0.4.0",
+        "rollup": "^3.17.3"
+    }
+}
