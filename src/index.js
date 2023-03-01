@@ -17,6 +17,7 @@
                 this.frameIds.delete(id)
             }
 
+            // TODO 优化：如果没有回调函数了，就不再执行requestAnimationFrame
             requestAnimationFrame(this.work.bind(this))
         }
 
