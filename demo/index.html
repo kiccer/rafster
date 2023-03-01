@@ -11,5 +11,18 @@
 </body>
 <script src="../build/rafster.umd.js"></script>
 <script src="./a.js"></script>
-<!-- <script src="./b.js"></script> -->
+<script src="./b.js"></script>
+<script>
+let n = 0
+    
+function c () {
+    console.log(333)
+    n++
+    if (n > 300) return
+    requestAnimationFrame(c)
+}
+
+c()
+
+</script>
 </html>

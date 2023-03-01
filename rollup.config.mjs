@@ -46,6 +46,6 @@ const configs = outputFormats.reduce((configs, format) => {
     return configs.concat(getConfig(format))
 }, [])
 
-console.log(JSON.stringify(configs, null, 4))
+// console.log(JSON.stringify(configs, null, 4))
 
 export default configs

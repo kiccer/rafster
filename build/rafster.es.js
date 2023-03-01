@@ -6,42 +6,29 @@
 
     const frameWorker = new class FrameWorker {
         constructor () {
-            this.frameIds = new Set();
-            this.frameId = null;
+            this.increaseId = 0;
+            this.frameIds = new Map();
+            this.work();
         }
 
         work () {
-            if (this.frameIds.size === 0) {
-                cancelAnimationFrame(this.frameId);
-                this.frameId = null;
-            } else {
-                for (const callback of this.frameIds) {
-                    callback();
-                }
-
-                this.frameId ??= requestAnimationFrame(this.work.bind(this));
+            for (const [id, callback] of [...this.frameIds]) {
+                callback();
+                this.frameIds.delete(id);
             }
+
+            requestAnimationFrame(this.work.bind(this));
         }
 
         request (callback) {
-            if (this.frameIds.has(callback)) return
-
-            this.frameIds.add(callback);
-
-            if (this.frameIds.size === 1) {
-                this.work();
-            }
-
-            return callback
+            const id = this.increaseId++;
+            this.frameIds.set(id, callback);
+            return id
         }
 
-        cancel (callback) {
-            if (!this.frameIds.has(callback)) return
-
-            this.frameIds.delete(callback);
-
-            if (this.frameIds.size === 0) {
-                this.work();
+        cancel (id) {
+            if (this.frameIds.has(id)) {
+                this.frameIds.delete(id);
             }
         }
     };

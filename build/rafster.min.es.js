@@ -1,1 +1,1 @@
-
+(e=>{const{requestAnimationFrame:s,cancelAnimationFrame:t}=e,n=new class{constructor(){this.increaseId=0,this.frameIds=new Map,this.work()}work(){for(const[e,s]of[...this.frameIds])s(),this.frameIds.delete(e);s(this.work.bind(this))}request(e){const s=this.increaseId++;return this.frameIds.set(s,e),s}cancel(e){this.frameIds.has(e)&&this.frameIds.delete(e)}};e.requestAnimationFrame=function(e){return n.request(e)},e.cancelAnimationFrame=function(e){n.cancel(e)}})(globalThis);

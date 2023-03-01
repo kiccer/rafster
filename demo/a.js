@@ -1,6 +1,9 @@
-function b () {
+let i = 0
+
+function a () {
     console.log(111)
-    requestAnimationFrame(b)
+    if (i++ > 100) return
+    requestAnimationFrame(a)
 }
 
-b()
+a()
