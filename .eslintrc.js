@@ -15,10 +15,6 @@ module.exports = {
         sourceType: 'module'
     },
 
-    include: [
-        'src/**/*.js'
-    ],
-
     rules: {
         indent: ['error', 4]
     }

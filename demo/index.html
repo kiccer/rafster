@@ -15,8 +15,8 @@
 <script>
 let n = 0
     
-function c () {
-    console.log('c', n++)
+function c (t) {
+    console.log('c', n++, t)
     if (n > 300) return
     requestAnimationFrame(c)
 }

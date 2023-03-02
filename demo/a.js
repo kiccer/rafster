@@ -2,7 +2,7 @@ let i = 0
 
 function a () {
     console.log('a', i++)
-    if (i++ > 100) return
+    if (i++ > 1e6) return
     requestAnimationFrame(a)
 }
 

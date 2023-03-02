@@ -5,8 +5,8 @@
 
     ((win) => {
         const {
-            requestAnimationFrame,
-            cancelAnimationFrame
+            requestAnimationFrame
+            // cancelAnimationFrame
         } = win;
 
         const frameWorker = new class FrameWorker {
@@ -20,10 +20,14 @@
             work () {
                 // When there is no task, no longer execute, saving performance.
                 if (this.frameIds.size === 0) return
-                
+
                 for (const [id, callback] of [...this.frameIds]) {
                     // Execute asynchronously to avoid blocking.
-                    setTimeout(callback);
+                    const timer = setTimeout(() => {
+                        callback(performance.now());
+                        // Prevent memory overflow.
+                        clearTimeout(timer);
+                    });
                     this.frameIds.delete(id);
                 }
 
@@ -44,7 +48,7 @@
                     this.frameIds.delete(id);
                 }
             }
-        };
+        }();
 
         win.requestAnimationFrame = function (callback) {
             return frameWorker.request(callback)
