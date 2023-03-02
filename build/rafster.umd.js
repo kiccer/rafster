@@ -11,16 +11,23 @@
 
         const frameWorker = new class FrameWorker {
             constructor () {
+                // Increase id, avoid duplicate id.
                 this.increaseId = 0;
+                // Store the callback function.
                 this.frameIds = new Map();
-                this.work();
             }
 
             work () {
+                // When there is no task, no longer execute, saving performance.
+                if (this.frameIds.size === 0) return
+                
                 for (const [id, callback] of [...this.frameIds]) {
-                    callback();
+                    // Execute asynchronously to avoid blocking.
+                    setTimeout(callback);
                     this.frameIds.delete(id);
                 }
+
+                // console.log('==================================')
 
                 requestAnimationFrame(this.work.bind(this));
             }
@@ -28,6 +35,7 @@
             request (callback) {
                 const id = this.increaseId++;
                 this.frameIds.set(id, callback);
+                if (this.frameIds.size === 1) this.work();
                 return id
             }
 
@@ -45,6 +53,6 @@
         win.cancelAnimationFrame = function (id) {
             frameWorker.cancel(id);
         };
-    })(globalThis);
+    })(globalThis || window);
 
 }));

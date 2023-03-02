@@ -16,13 +16,17 @@
 let n = 0
     
 function c () {
-    console.log(333)
-    n++
+    console.log('c', n++)
     if (n > 300) return
     requestAnimationFrame(c)
 }
 
 c()
+
+setTimeout(() => {
+    n = 0
+    c()
+}, 5000)
 
 </script>
 </html>

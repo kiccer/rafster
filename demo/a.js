@@ -1,7 +1,7 @@
 let i = 0
 
 function a () {
-    console.log(111)
+    console.log('a', i++)
     if (i++ > 100) return
     requestAnimationFrame(a)
 }

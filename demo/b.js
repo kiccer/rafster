@@ -1,6 +1,6 @@
 let m = 0
 function b () {
-    console.log(222)
+    console.log('b', m++)
     if (m++ > 400) return
     requestAnimationFrame(b)
 }
