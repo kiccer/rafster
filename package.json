@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "Sharing the \"requestAnimationFrame\" and \"cancelAnimationFrame\" methods across different libraries saves animation frames, thereby improving performance.",
     "main": "src/index.js",
+    "files": [ "src", "build" ],
     "scripts": {
         "rollup:dev": "rollup -c -w --environment NODE_ENV:development",
         "rollup:build": "rollup -c --environment NODE_ENV:production",
