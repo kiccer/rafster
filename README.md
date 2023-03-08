@@ -1,8 +1,8 @@
 # Rafster
 
-Rafster 是一个简单、快速且易于使用的库，用于将多个三方库的 `requestAnimationFrame` 方法合并为一个，以提高性能。
+Rafster is a simple, fast, and easy-to-use library for combining the `requestAnimationFrame` method of multiple third-party libraries into one to improve performance.
 
-## 安装
+## Installation
 
 ```bash
 npm install rafster --save
@@ -10,11 +10,11 @@ npm install rafster --save
 yarn add rafster
 ```
 
-## 使用
+## Usage
 
 ```js
-// 在 requestAnimationFrame 被调用前引入
+// Import before requestAnimationFrame is called
 import 'rafster'
-// 使用了 requestAnimationFrame 的库
+// Import library that uses requestAnimationFrame
 import someLib from 'some-lib'
 ```
