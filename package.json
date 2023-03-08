@@ -1,7 +1,7 @@
 {
     "name": "rafster",
     "version": "1.0.0",
-    "description": "使不同库共享 requestAnimationFrame 和 cancelAnimationFrame 方法，节省动画帧，以此提升性能。",
+    "description": "Sharing the \"requestAnimationFrame\" and \"cancelAnimationFrame\" methods across different libraries saves animation frames, thereby improving performance.",
     "main": "src/index.js",
     "scripts": {
         "rollup:dev": "rollup -c -w --environment NODE_ENV:development",
@@ -15,7 +15,7 @@
     "keywords": [
         "requestAnimationFrame",
         "multiple",
-        "shared-frame"
+        "Sharing frames"
     ],
     "author": "kiccer <1072907338@qq.com>",
     "license": "MIT",
